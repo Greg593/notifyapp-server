@@ -12,6 +12,7 @@ function setUserInfo(request){
     return {
         _id: request._id,
         email: request.email,
+        dpi: request.dpi,
         role: request.role
     };
 }
@@ -30,6 +31,7 @@ exports.register = function(req, res, next){
  
     var email = req.body.email;
     var password = req.body.password;
+    var dpi = req.body.dpi;
     var role = req.body.role;
  
     if(!email){
@@ -53,6 +55,7 @@ exports.register = function(req, res, next){
         var user = new User({
             email: email,
             password: password,
+            dpi: dpi,
             role: role
         });
  

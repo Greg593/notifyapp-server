@@ -13,6 +13,10 @@ var UserSchema = new mongoose.Schema({
         type: String,
         required: true
     },
+    dpi: {
+        type: String,
+        required: true
+    },
     role: {
         type: String,
         enum: ['user', 'administrator'],
@@ -55,4 +59,4 @@ UserSchema.methods.comparePassword = function(passwordAttempt, cb){
  
 }
  
-module.exports = mongoose.model('User', UserSchema);
+module.exports = mongoose.model('users', UserSchema);
