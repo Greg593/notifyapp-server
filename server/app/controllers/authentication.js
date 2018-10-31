@@ -1,5 +1,5 @@
 var jwt = require('jsonwebtoken'); 
-var User = require('../models/user');
+var User = require('../models/usuario');
 var authConfig = require('../../config/auth');
  
 function generateToken(user){
@@ -11,6 +11,7 @@ function generateToken(user){
 function setUserInfo(request){
     return {
         _id: request._id,
+        nombre: request.nombre,
         email: request.email,
         dpi: request.dpi,
         role: request.role
@@ -29,6 +30,7 @@ exports.login = function(req, res, next){
  
 exports.register = function(req, res, next){
  
+    var name = req.body.name;
     var email = req.body.email;
     var password = req.body.password;
     var dpi = req.body.dpi;
@@ -53,6 +55,7 @@ exports.register = function(req, res, next){
         }
  
         var user = new User({
+            name: name,
             email: email,
             password: password,
             dpi: dpi,

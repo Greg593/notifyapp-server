@@ -3,6 +3,12 @@ var bcrypt   = require('bcrypt-nodejs');
  
 var UserSchema = new mongoose.Schema({
  
+    nombre: {
+        type: String,
+        lowercase: true,
+        required: true
+    },
+
     email: {
         type: String,
         lowercase: true,
@@ -17,9 +23,9 @@ var UserSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    role: {
+    role: { 
         type: String,
-        enum: ['user', 'administrator'],
+        enum: ['user', 'administrador'],
         default: 'user'
     } 
 }, {
@@ -59,4 +65,4 @@ UserSchema.methods.comparePassword = function(passwordAttempt, cb){
  
 }
  
-module.exports = mongoose.model('users', UserSchema);
+module.exports = mongoose.model('Usuario', UserSchema);

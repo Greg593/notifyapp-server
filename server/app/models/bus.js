@@ -1,10 +1,33 @@
 var mongoose = require('mongoose');
+var Schema = mongoose.Schema;
+//var Linea = mongoose.model('LineaBus')
 
-var BusSchema = new mongoose.Schema({
-    nombre: String,
-    placa: String,
-    centra: String,
-    qr: String
+var BusSchema = new Schema({
+    nombre: {
+	    type: String,
+	    lowercase: true,
+	    required: true
+    },
+    placa: {
+    	type: String,
+	    lowercase: true,
+	    required: true
+	},
+    centra: {
+    	type: String,
+	    lowercase: true,
+	    required: true
+    },
+    qr: {
+    	type: String,
+	    lowercase: true,
+	    required: true
+    },    
+    linea: {
+    	type: Schema.ObjectId, ref: 'LineaBus'
+    }
+}, {
+    timestamps: true
 });
  
-module.exports = mongoose.model('bus', BusSchema);
+module.exports = mongoose.model('Bus', BusSchema);

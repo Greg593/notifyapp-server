@@ -1,4 +1,4 @@
-var Usuario = require('../models/usuarios');
+var Usuario = require('../models/usuario');
  
 exports.getUsuarios = function(req, res, next){
  
