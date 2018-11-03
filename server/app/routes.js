@@ -5,6 +5,8 @@ var AuthenticationController = require('./controllers/authentication'),
     PermisosController = require('./controllers/permisos'),
     RolesController = require('./controllers/roles'),
     UsuariosController = require('./controllers/usuarios'),    
+    UsrAlertController = require('./controllers/useralerts'), 
+    UsrBusController = require('./controllers/userbuses'), 
     express = require('express'),
     passportService = require('../config/passport'),
     passport = require('passport');
@@ -66,9 +68,17 @@ module.exports = function(app){
     rolRoutes.post('/', RolesController.createRol);
     rolRoutes.delete('/:rol_id', RolesController.deleteRol);     
 
-    //Alertas por Usuario
+/*     //Alertas por Usuario
+    apiRoutes.use('/useralerts', usrAlertRoutes);
+    usrAlertRoutes.get('/', UsrAlertController.getUserAlert);
+    usrAlertRoutes.post('/', UsrAlertController.createUserAlert);
+    usrAlertRoutes.delete('/:useralert_id', UsrAlertController.deleteUserAlert);     
 
     //Buses por Usuario
+    apiRoutes.use('/userbuses', usrBusRoutes);
+    usrBusRoutes.get('/', UsrBusController.getUserBus);
+    usrBusRoutes.post('/', UsrBusController.createUserBus);
+    usrBusRoutes.delete('/:useralert_id', UsrBusController.deleteUserBus);     */
 
     // Usuarios Routes
     apiRoutes.use('/usuarios', usuarioRoutes);        

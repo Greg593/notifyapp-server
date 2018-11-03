@@ -18,7 +18,10 @@ exports.createUsuario = function(req, res, next){
  
     Usuario.create({
         nombre : req.body.nombre, 
+        email: req.body.email,
+        password: req.body.password,
         dpi: req.body.dpi
+
     }, function(err, usuario) {
  
         if (err){

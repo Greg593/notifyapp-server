@@ -9,7 +9,8 @@ var UsuarioAlertaSchema = new mongoose.Schema({
     fecha: {
         type: Date,        
         unique: true,
-        required: true
+        required: true,
+        unique: true,
     },
     coordenadas: {
         type: String,

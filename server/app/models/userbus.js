@@ -12,7 +12,8 @@ var UsuarioBusSchema = new mongoose.Schema({
     },
     fecha: {
     	type: Date,
-    	required: true
+        required: true,
+        unique: true,
     },
     user: {
     	type: Schema.ObjectId, ref: "Usuario"

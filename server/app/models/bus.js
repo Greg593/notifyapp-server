@@ -6,7 +6,8 @@ var BusSchema = new Schema({
     nombre: {
 	    type: String,
 	    lowercase: true,
-	    required: true
+		required: true,
+		unique: true,
     },
     placa: {
     	type: String,
