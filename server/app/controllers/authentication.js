@@ -30,7 +30,7 @@ exports.login = function (req, res, next) {
 
 exports.register = function (req, res, next) {
 
-    var name = req.body.name;
+    var nombre = req.body.nombre;
     var email = req.body.email;
     var password = req.body.password;
     var dpi = req.body.dpi;
@@ -55,7 +55,7 @@ exports.register = function (req, res, next) {
         }
 
         var user = new User({
-            name: name,
+            nombre: nombre,
             email: email,
             password: password,
             dpi: dpi,

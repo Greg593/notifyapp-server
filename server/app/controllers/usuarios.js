@@ -14,6 +14,22 @@ exports.getUsuarios = function(req, res, next){
  
 }
  
+
+exports.getUsuario = function(req, res, next){
+ 
+    Usuario.findById(req.params.usuario_id, function(err, usuarios) {        
+ 
+        if (err){
+            res.send(err);
+        }
+ 
+        res.json(usuarios);
+ 
+    });
+ 
+}
+
+
 exports.createUsuario = function(req, res, next){
  
     Usuario.create({
