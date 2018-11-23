@@ -21,8 +21,7 @@ var BusSchema = new Schema({
     },
     qr: {
     	type: String,
-	    lowercase: true,
-	    required: true
+	    lowercase: true	    
     },    
     linea: {
     	type: Schema.ObjectId, ref: 'LineaBus'

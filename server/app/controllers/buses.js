@@ -19,7 +19,7 @@ exports.createBus = function(req, res, next){
         nombre : req.body.nombre, 
         placa: req.body.placa,
         centra: req.body.centra,
-        qr: req.body.qr
+        //qr: req.body.qr
     }, function(err, bus) {
  
         if (err){

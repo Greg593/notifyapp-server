@@ -17,9 +17,8 @@ exports.getUsuarioAlertas = function (req, res, next) {
 exports.createUsuarioAlerta = function (req, res, next) {
 
     UsuarioAlerta.create({
-        _id: req.params.useralerta_id
-        
-        nivel: req.body.nivel
+        Alerta: req.params.alerta  
+        //nivel: req.body.nivel
     }, function (err, alerta) {
 
         if (err) {

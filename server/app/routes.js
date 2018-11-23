@@ -5,7 +5,7 @@ var AuthenticationController = require('./controllers/authentication'),
     PermisosController = require('./controllers/permisos'),
     RolesController = require('./controllers/roles'),
     UsuariosController = require('./controllers/usuarios'),    
-    //UsrAlertController = require('./controllers/useralerts'), 
+    UsrAlertController = require('./controllers/useralerts'), 
     //UsrBusController = require('./controllers/userbuses'), 
     express = require('express'),
     passportService = require('../config/passport'),
@@ -23,7 +23,8 @@ module.exports = function(app){
         lineaRoutes = express.Router(),
         permisoRoutes = express.Router(),
         rolRoutes = express.Router(),
-        usuarioRoutes = express.Router();
+        usuarioRoutes = express.Router(),
+        usrAlertRoutes = express.Router();
               
 
     // --------------------------- RUTEOS ---------------------------------- //
@@ -40,7 +41,7 @@ module.exports = function(app){
 
     //Alertas
     apiRoutes.use('/alertas', alertaRoutes);
-    alertaRoutes.get('/', requireAuth, AlertasController.getAlertas);
+    alertaRoutes.get('/', AlertasController.getAlertas);
     alertaRoutes.post('/', requireAuth, AlertasController.createAlerta);
     alertaRoutes.delete('/:alerta_id', requireAuth, AlertasController.deleteAlerta);
 
@@ -68,13 +69,13 @@ module.exports = function(app){
     rolRoutes.post('/', RolesController.createRol);
     rolRoutes.delete('/:rol_id', RolesController.deleteRol);     
 
-/*     //Alertas por Usuario
+     //Alertas por Usuario
     apiRoutes.use('/useralerts', usrAlertRoutes);
-    usrAlertRoutes.get('/', UsrAlertController.getUserAlert);
-    usrAlertRoutes.post('/', UsrAlertController.createUserAlert);
-    usrAlertRoutes.delete('/:useralert_i1d', UsrAlertController.deleteUserAlert);     
+    //usrAlertRoutes.get('/', UsrAlertController.getUserAlert);
+    usrAlertRoutes.post('/', UsrAlertController.createUsuarioAlerta);
+    //usrAlertRoutes.delete('/:useralert_i1d', UsrAlertController.deleteUserAlert);     
 
-    //Buses por Usuario
+ /*   //Buses por Usuario
     apiRoutes.use('/userbuses', usrBusRoutes);
     usrBusRoutes.get('/', UsrBusController.getUserBus);
     usrBusRoutes.post('/', UsrBusController.createUserBus);
